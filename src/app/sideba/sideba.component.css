@@ -1,0 +1,105 @@
+.TextBox{
+    width: 300%;
+    border: none;
+    border-bottom: 2px solid rgba(217,83,79,.5);
+    border-radius: 0px;
+    color:rgba(217,83,79,.5);
+    height: 35px;
+    outline: none;
+    transition: all 700ms ease-in-out;
+    padding-left: 5px;
+}
+
+.TextBox:hover{
+    border-bottom: 2px solid rgba(217,83,79,1);
+    color:rgba(217,83,79,1);
+    width: 340%;
+}
+
+.TextBox:focus{
+    border-bottom: 2px solid rgba(201,48,44,1);
+    color:rgba(201,48,44,1);
+    width: 340%;
+}
+
+
+.myNavbar{
+     background-color: white;
+     box-shadow: 4px 4px 4px rgba(200,200,200,1);
+     outline: none;
+     border: none;
+}
+
+.myButton{
+    border-radius: 0px;
+    box-shadow: 2px 2px 5px rgba(0,0,255,.2);
+    outline: none;
+    transition: all 200ms ease-in-out;
+}
+
+
+.txtDivision{
+    text-align: center;
+    background-color: rgba(217,83,79,.1);
+    width: 117%;
+    position: absolute;
+    left: 0px;
+    color: rgba(217,83,79,1);
+}
+
+.solutionDivision{
+    text-align: left;
+    background-color: rgba(201,48,44,.3);
+    width: 117%;
+    position: absolute;
+    left: 0px;
+    top:70px;
+    color: rgba(201,48,44,1);
+    animation: solution_show 800ms ease-in-out forwards;
+}
+
+@keyframes solution_show{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.headingContainer{
+    text-align: center;
+    background-color: rgba(201,48,44,1);
+    width: 103%;
+    height: 30px;
+    position: relative;
+    left: -20px;
+    top: -20px;
+    color: white;
+
+}
+
+.blackDiv{
+    text-align: left;
+    align-content: flex-start;;
+    background-color: rgba(201,48,44,.9);
+    width: 117%;
+    height: 100%;
+    position: fixed;
+    left: 0px;
+    color: white;
+    opacity: 0;
+    animation: opac_help 800ms ease-in-out forwards;
+}
+
+
+@keyframes opac_help{
+    0%{
+        opacity: 0;
+        transform: scale(0);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}

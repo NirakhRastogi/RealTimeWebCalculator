@@ -1,0 +1,99 @@
+
+<nav class="navbar navbar-inverse navbar-fixed-top myNavbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <h2 class="navbar-brand" style="color: rgba(201,20,30,1)"><b>Real Time Web Calculator</b></h2>
+    </div>
+    <form class="navbar-form navbar-left">
+      <form #f="ngForm">
+        <input type="text" name="txtQuery" [(ngModel)]="query" [disabled]="!txtMode.valid" class="TextBox" (keyup)="fireQuery()" #txtQuery="ngModel" autocomplete="off" placeholder="Enter query here" required >
+        <button class="btn btn-danger navbar-btn myButton" (click)="toggleMode()">Mode set to {{mode}}</button>
+        <button class="btn btn-danger navbar-btn myButton" (click)="togglePi()">Pi set to {{PiValue}}</button>
+        <button class="btn btn-info navbar-btn myButton" (click)="toggleHelp()">{{HelpText}} Help</button>
+        <input type="text" name="txtMode" [(ngModel)]="mode" class="form-control" (keyup)="fireQuery()" #txtMode="ngModel" placeholder="Enter mode here" value="DEG" required style="display: none" >
+        <input type="text" name="txtPi" [(ngModel)]="PiValue" class="form-control" (keyup)="fireQuery()" #txtPi="ngModel" placeholder="Enter pi here" value="180" required style="display: none">
+        <input type="text" name="txtHelp" [(ngModel)]="HelpShow" class="form-control" (keyup)="fireQuery()" #txtHelp="ngModel" placeholder="Enter pi here" required style="display: none">
+      </form>
+    </form>
+  </div>
+</nav>
+
+<div class="container" style="position: absolute;top: 110px">
+    <div class="container txtDivision" [hidden]="f.valid">
+        <h1>Real Time Calculator - Calculator</h1>
+        <h2>Angular 2 JS</h2>
+        <h2>Rest Web Service</h2>
+        <h2>Java Backend</h2>
+    </div>
+    <div class="container txtDivision" [hidden]="!f.valid">
+        <h1>Real Time Calculator - Calculator</h1>
+    </div>
+
+    <div class="container solutionDivision" [hidden]="!f.valid">
+        <div class="headingContainer">
+            <h3><u>Solution</u></h3>
+        </div>
+        <p style="white-space: pre-line">{{result}}</p>
+    </div>
+    <div class="container blackDiv" *ngIf="HelpShow">
+        <div class="container col-md-12">
+            <div class="container col-md-3">
+                <u><h4>Basic Operators available are</h4></u>
+                <h5>a+b  ---->   a additon b</h5>
+                <h5>a-b  ---->   a subtraction b</h5>
+                <h5>a*b  ---->   a multiplication b</h5>
+                <h5>a/b  ---->   a division b</h5>
+                <h5>a**b  ---->   a to the power b</h5>
+                <h5>a%b  ---->   a mod b</h5>
+                <h1></h1>
+                <u><h4>Logarithimic functions available are</h4></u>
+                <h5>ln(x)  ---->   Gives log of x with base e</h5>
+                <h5>log(x)  ---->   Gives log of x base 10</h5>
+                <h1></h1>
+                <u><h4>Constants available are</h4></u>
+                <h5>e=2.718281828459045   ---->    Value of e (exponent)</h5>
+                <h5>pi={{PiValue}}   ---->    Value of pi you can toggle by button above</h5>
+            </div>
+            <div class="container col-md-3">
+                <u><h4>Trignometric functions available are</h4></u>
+                <h5>sin(x)  ---->   Gives sin of x</h5>
+                <h5>cos(x)  ---->   Gives cos of x</h5>
+                <h5>tan(x)  ---->   Gives tan of x</h5>
+                <h5>cot(x)  ---->   Gives cot of x</h5>
+                <h5>sec(x)  ---->   Gives sec of x</h5>
+                <h5>cosec(x)  ---->   Gives cosec of x</h5>
+                <h1></h1>
+                <u><h4>Inv Trignometric functions available are</h4></u>
+                <h5>asin(x)  ---->   Gives asin of x</h5>
+                <h5>acos(x)  ---->   Gives acos of x</h5>
+                <h5>atan(x)  ---->   Gives atan of x</h5>
+                <h5>acot(x)  ---->   Gives acot of x</h5>
+                <h5>asec(x)  ---->   Gives asec of x</h5>
+                <h5>acosec(x)  ---->   Gives acosec of x</h5>
+            </div>
+            <div class="container col-md-2">
+                <u><h4>Bitwise operators are</h4></u>
+                <h5>a&b ---->   Bitwise And</h5>
+                <h5>a|b  ---->   Biwise Or</h5>
+                <h5>a^b  ---->   Bitwise XOR</h5>
+                <h5>~a  ---->   Bitwise not</h5>
+                <h5>a << b  ---->   Bitwise Left shift</h5>
+                <h5>a >> b ---->   Bitwise Right shift</h5>
+            </div>
+            <div class="container col-md-4">
+                <u><h4>Logical available are</h4></u>
+                <h5>a==b ---->  Equals to</h5>
+                <h5>a===b ---->  Equals to</h5>
+                <h5>a!=b  ---->   Not Equals to</h5>
+                <h5>a!==b  ---->   Not Equals to</h5>
+                <h5>a<=b  ---->   Less than Equals to</h5>
+                <h5>a>=b  ---->  Greater than Equals to</h5>
+                <h5>a < b ---->   Less than</h5>
+                <h5>a > b  ---->   Greater than</h5>
+            </div>
+        </div>
+        <div class="container col-md-12">
+            <h1>Info. ==>  Range of Calculator is of order of 10^308.</h1>
+        </div>
+    </div>
+</div>
